@@ -6,32 +6,41 @@
     <title>Weather</title>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <link href="style.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:wght@100..700" rel="stylesheet">
+
+
 </head>
 <body>
 
 
 
-
+<div class="mockup"></div>
 <div id="display">
 
-    <div id="tap"><span class="material-symbols-outlined">
+    <div id="tap"><span class="material-symbols-rounded chevron">
 chevron_left
 </span></div>
 
-    <span class="material-symbols-outlined">distance</span>
+    <span class="material-symbols-rounded distance">distance</span>
     <p id="city"></p>
     <h2 id="temp"></h2>
-    <h1 id="weather"></h1>
-    <p id="temp_minmax"></p>
+    <!--<h1 id="weather"></h1>-->
+    <!--<p id="temp_minmax"></p>-->
     <img id="icon" src="#">
 
     <div id="info_wrap">
-        <span id="rain"></span><span id="aqi"></span><span id="wind"></span>
+        <div class="info_text"><p>강수확률</p><span id="rain"></span></div>
+        <div class="info_text"><p>공기질</p><span id="aqi"></span></div>
+        <div class="info_text"><p>풍속</p><span id="wind"></span></div>
     </div>
 
-    <h1>예상 날씨</h1>
-    <div id="forecast"></div>
+    <div id="forecast">
+        <button class="line"></button>
+
+    </div>
+
+    <div id="sky"></div>
+    <div id="sky_line"></div>
 
 </div>
 
