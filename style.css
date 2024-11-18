@@ -26,6 +26,12 @@ a {
 }
 
 
+@media (max-width: 575px) {
+    #display{
+        height: 100vh;
+    }
+}
+
 #display{
     display: flex;
     align-items: center;
