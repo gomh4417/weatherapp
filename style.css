@@ -1,3 +1,19 @@
+/* 기본값: 낮 모드 */
+:root {
+    --background-color-main: #ffffff;
+    --background-color-secondary: #ffffff90;
+    --text-color: #000000;
+    --sky-bg-color: #F8F16C; /* 기본(낮) 배경 색 */
+    --sky-line-border-color: #FFFFFF75; /* 공통 테두리 색 */
+}
+
+[data-theme="dark"] {
+    --background-color-main: #18181A;
+    --background-color-secondary: #18181A90;
+    --text-color: #ffffff;
+    --sky-bg-color: #FFFFFF; /* 밤 배경 색 */
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -17,32 +33,55 @@ a {
     color: inherit;
 }
 
-.material-symbols-outlined {
+.material-symbols-rounded {
     font-variation-settings:
     'FILL' 0,
-    'wght' 400,
+    'wght' 300,
     'GRAD' 0,
     'opsz' 24
 }
 
-
-@media (max-width: 575px) {
-    #display{
-        height: 100vh;
-    }
+.distance {
+    font-size: 24px;
+    margin-top: 68px;
 }
 
-#display{
+.iconSize {
+    font-size: 40px !important;
+    font-weight: 300 !important;
+    font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 40 !important;
+}
+
+body {
+    overflow: hidden;
+    font-family: "Noto Sans KR", sans-serif;
+    background-color: var(--background-color-main);
+    color: var(--text-color);
+}
+
+.mockup {
+    position: fixed;
+    width: 396px;
+    height: 826px;
+    background-image: url(https://i.postimg.cc/KcJZKHcR/image.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    z-index: 99;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#display {
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-direction: column;
     width: 375px;
-    height: 780px;
-    gap: 20px;
+    height: 812px;
     overflow: hidden;
-    border-radius: 32px;
-    background-image: url(https://i.postimg.cc/L5sYSVn0/01d.png);
+    border-radius: 52px;
+    background-image: url(https://i.postimg.cc/SK4b4BJD/01d.png);
     background-repeat: no-repeat;
     background-size: cover;
     position: relative;
@@ -50,29 +89,82 @@ a {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background-color: var(--background-color-main);
+    color: var(--text-color);
 }
 
-#forecast{
+#forecast {
     display: flex;
     text-align: center;
-    gap: 20px;
+    gap: 24px;
+    justify-content: space-between;
+    width: 100%;
+    background-color: var(--background-color-main);
+    border-radius: 32px 32px 0px 0px;
+    padding: 52px 30px 50px 30px;
+    width: 100%;
+    position: absolute;
+    bottom: 0%;
+    z-index: 2;
+    height: 214px;
+    box-shadow: 0px -4px 12px 0px #00000005;
+    transform: translateY(0); /* 기본 위치 */
+    transition: transform 0.5s ease; /* 부드러운 애니메이션 */
 }
 
-#info_wrap{
+#forecast.hidden {
+    transform: translateY(180px); /* 아래로 이동 */
+}
+
+.line {
+    width: 68px;
+    height: 4px;
+    border-radius: 999px;
+    background-color: #d6d6d6;
+    position: absolute;
+    top: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: none;
+    cursor: pointer;
+}
+
+#info_wrap {
     display: flex;
-    gap: 20px;
+    gap: 24px;
     justify-content: center;
-}
-
-#info_wrap span{
-    width: 60px;
+    width: 312px;
+    height: 80px;
+    background-color: var(--background-color-secondary);
+    border-radius: 20px;
+    align-items: center;
     text-align: center;
+    box-shadow: 0px 0px 8px 0px #00000005;
+    margin-top: 4px;
 }
 
-#tap{
+.info_text {
+    width: 72px;
+    text-align: center;
+    display: flex;
+    gap: 8px;
+    flex-direction: column;
+}
+
+.info_text p {
+    font-size: 12px;
+    font-weight: 400;
+}
+
+.info_text span {
+    font-size: 20px;
+    font-weight: 500;
+}
+
+#tap {
     width: 32px;
     height: 120px;
-    background-color: #ffffff90;
+    background-color: var(--background-color-secondary);
     border-radius: 20px 0px 0px 20px;
     position: absolute;
     right: 0%;
@@ -83,3 +175,51 @@ a {
     cursor: pointer;
 }
 
+.sub_time {
+    font-size: 12px;
+    font-weight: 400;
+    margin-bottom: 16px;
+}
+
+.sub_temp {
+    font-size: 24px;
+    font-weight: 500;
+    margin-top: 8px;
+}
+
+#city {
+    font-size: 20px;
+    margin-top: 4px;
+}
+
+#temp {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 72px;
+    margin-top: 16px;
+}
+
+
+#sky{
+    background-color: var(--sky-bg-color);
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    bottom: 0%;
+    transform: translateY(25%);
+    width: 504px;
+    height: 314px;
+    border-radius: 50%;
+    z-index: -2;
+}
+
+#sky_line{
+    position: absolute;
+    width: 584px;
+    height: 398px;
+    border-radius: 50%;
+    border: 2px solid var(--sky-line-border-color); 
+    bottom: 0%;
+    transform: translateY(30%);
+    z-index: -1;
+}
